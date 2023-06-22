@@ -1,4 +1,4 @@
 <app-navbar [titulo]="'App Noticias'"></app-navbar>
 <div>
-  <app-formulario></app-formulario>
+  <app-formulario (parametrosSeleccionados)="buscarNoticias($event)"></app-formulario>
 </div>

@@ -2,25 +2,26 @@
   <h3 class="titulo">Filtra Noticias por Pais y Categoria</h3>
   <div class="row">
     <div class="col">
-      <form action="">
+      <form (ngSubmit)="buscarNoticia()">
         <div>
           <label>Tipo de Noticia:</label>
           <mat-form-field>
             <mat-label>Select</mat-label>
-            <mat-select>
-              <mat-option value="one">First option</mat-option>
-              <mat-option value="two">Second option</mat-option>
+            <mat-select name="categoria" [(ngModel)]="categoriaSeleccionada">
+              <mat-option *ngFor="let categoria of categorias" [value]="categoria.value"> {{ categoria.nombre }} </mat-option>
             </mat-select>
           </mat-form-field>
 
           <label>Pais: </label>
           <mat-form-field>
             <mat-label>Select</mat-label>
-            <mat-select>
-              <mat-option value="one">First option</mat-option>
-              <mat-option value="two">Second option</mat-option>
+            <mat-select name="pais" [(ngModel)]="paisSeleccionado">
+              <mat-option *ngFor="let pais of paises" [value]="pais.value"> {{ pais.nombre }} </mat-option>
             </mat-select>
           </mat-form-field>
+          <div>
+            <button mat-raised-button color="primary" type="submit">Primary</button>
+          </div>
         </div>
       </form>
     </div>
