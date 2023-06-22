@@ -10,12 +10,13 @@ import { NoticiasService } from './services/noticias.service';
 })
 export class AppComponent {
   title = 'AppNoticias';
+  listadoNoticias: any[] = [];
 
   constructor( private _servicioNoticias: NoticiasService) {}
 
   buscarNoticias(parametros: Parametros){
     this._servicioNoticias.getNoticias(parametros).subscribe( (result) =>{
-      console.log(result)
+      this.listadoNoticias = result.articles;
     });
   }
 }
